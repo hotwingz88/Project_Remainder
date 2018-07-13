@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component'
@@ -11,6 +12,7 @@ import { UserComponent } from './components/user chat/user.component';
 import { NoteComponent } from './components/note/note.component';
 import { HelpComponent } from './components/help/help.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { UserService } from './services/user.service.client';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,15 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     UserComponent,
     NoteComponent,
     HelpComponent,
-    HomepageComponent
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
     Routing,
-   
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

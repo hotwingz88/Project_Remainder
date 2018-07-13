@@ -9,7 +9,18 @@ export class ProfileComponent implements OnInit {
 
   constructor() { }
 
+  editable: boolean;
+
   ngOnInit() {
+  	this.editable = false;
+  }
+
+  edit() {
+  	this.editable = true;
+  }
+
+  update() {
+  	this.editable = false;
   }
 
 }

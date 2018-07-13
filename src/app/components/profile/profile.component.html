@@ -1,25 +1,49 @@
 <div class="container-fluid">
 	<h1 class="text-center">Profile</h1>
-	<form>
+	<!-- non-editable -->
+	<div *ngIf="!editable">
+		<button (click)="edit()" type="button" class="btn btn-info">Edit <i class="far fa-edit"></i></button>
 		<div class="form-group">
 			<label for="username"><b>Username</b></label>
-			<input class="form-control" type="text" name="username" placeholder="username">
+			<p name="username">alice</p>
 		</div>
 		<div class="form-group">
 			<label for="email"><b>E-mail</b></label>
-			<input class="form-control" type="email" name="email" placeholder="email">
+			<p name="email">alice@gmail.com</p>
 		</div>
 		<div class="form-group">
 			<label for="first-name"><b>First Name</b></label>
-			<input class="form-control" type="text" name="first-name" placeholder="first-name">
+			<p name="first-name">Alice</p>
 		</div>
 		<div class="form-group">
 			<label for="last-name"><b>Last Name</b></label>
-			<input class="form-control" type="text" name="last-name" placeholder="last-name">
+			<p name="last-name">Wonder</p>
 		</div>
-		<a class="btn btn-dark btn-block" routerLink="/user/:uid/website">Sign in</a>
-		<a class="btn btn-danger btn-block" routerLink="/login">Logout</a>
+		<a class="btn btn-danger btn-block" routerLink="/homepage">Logout</a>
+	</div>
+	<!-- editable -->
+	<div *ngIf="editable">
+		<form>
+			<div class="form-group">
+				<label for="username"><b>Username</b></label>
+				<input class="form-control" type="text" name="username" placeholder="username">
+			</div>
+			<div class="form-group">
+				<label for="email"><b>E-mail</b></label>
+				<input class="form-control" type="email" name="email" placeholder="email">
+			</div>
+			<div class="form-group">
+				<label for="first-name"><b>First Name</b></label>
+				<input class="form-control" type="text" name="first-name" placeholder="first-name">
+			</div>
+			<div class="form-group">
+				<label for="last-name"><b>Last Name</b></label>
+				<input class="form-control" type="text" name="last-name" placeholder="last-name">
+			</div>
+			<a  (click)="update()" class = "btn btn-success btn-block">Submit</a>
+			<a class="btn btn-danger btn-block" routerLink="/homepage">Logout</a>
 		</form>
+	</div>
 </div>
 
 		

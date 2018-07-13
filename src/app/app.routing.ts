@@ -12,12 +12,12 @@ import { HomepageComponent } from './components/homepage/homepage.component'
 const APP_ROUTES : Routes = [
   { path : '' , component: HomepageComponent},
   { path : 'register' , component:RegisterComponent },
-  { path : 'profile', component: ProfileComponent},
+  { path : 'profile/:uid', component: ProfileComponent},
   { path : 'friends', component: FriendsComponent},
   { path : 'user', component: UserComponent},
   { path : 'note', component: NoteComponent},
   { path : 'help', component: HelpComponent},
-  { path : 'homepage', component: HomepageComponent}
+  { path : 'homepage', component: HomepageComponent},
 ];
 
 // Export the routes as module providers
