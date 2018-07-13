@@ -32,6 +32,7 @@ export class HomepageComponent implements OnInit {
         this.errorFlag= false;
         this.router.navigate(['profile', user._id]);
       },
+      
       (error: any) => {
          this.errorFlag = true;
       }
