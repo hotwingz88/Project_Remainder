@@ -25,3 +25,5 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Website Description
+"Hello and Welcome to Reminder.com." "Here on this site you will be able to leave yourself a "reminder" of what you may have forgotten today or yesterday." "By going to the Note page on my site." 
