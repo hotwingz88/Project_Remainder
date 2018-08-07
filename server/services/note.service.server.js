@@ -1,15 +1,17 @@
 module.exports = function(app) {
-var note = [
-	{_id:"789", User_id:"Mr.Stein", message:"go MIT on Monday"},
-	{_id:"121", User_id:"Mr.Eidison", message:"Job rebuild on Thursday"}
-];
+	var NoteModel = require('../models/note.model.server.js')
 
-app.get('/api/user/:uid', findUserById);
+	app.get('/api/notes/:uid', findNotesForUser);
 
+	function findNotesForUser(req, res) {
+		// getting the uid from request parameters
+		var uid = req.params["uid"];
+		
+		NoteModel.findNotesForUser(uid).then(
+			function(data) {
+				res.json(data);
+			}
+		)
 
-function findUserById(res){
-	// var uid = res.params['uid'];
-	// var user = selectUserByid(uid);
-	// res.
-}
+	}
 }

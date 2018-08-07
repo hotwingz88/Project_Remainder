@@ -10,13 +10,10 @@
 		        <a class="nav-link" routerLink="/homepage">Home<span class="sr-only"></span></a>
 		    </li>
 		    <li class="nav-item">
-		        <a class="nav-link" routerLink="/register">Register</a>
+		        <a class="nav-link" routerLink="/profile">Profile</a>
 		    </li>
 		    <li class="nav-item">
-		        <a class="nav-link" routerLink="/login">Login</a>
-		    </li>
-		     <li class="nav-item">
-		        <a class="nav-link" routerLink="/profile">Profile</a>
+		        <a class="nav-link" routerLink="/register">Register</a>
 		    </li>
 		    <li class="nav-item">
 		        <a class="nav-link" routerLink="/help">About</a>
@@ -33,17 +30,24 @@
 <div class="container-fluid">
 	<div class="alert alert-warning">Leave a reminder here in case you forget something or make a checklist...
 	</div>
-
-	<ol class="list-group list-group-flush note-list">
-		<li class="list-group-item">Remember to pick up eggs and milk from the store</li>
-		<li class="list-group-item">don't forget to go to dance recital</li>
-		<li class="list-group-item">take out the trash tomorrow</li>
-		<li class="list-group-item">remember to cook a healthy dinner tonight</li>
-	</ol>
+	<div class="input-group mb-3">
+  		<input [(ngModel)]="newDescription" type="text" class="form-control" placeholder="New Note"  aria-describedby="button-addon2">
+  		<div class="input-group-append">
+    		<button (click)="create()" class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+  		</div>
+	</div>
+	<div *ngIf="!editable">
+	<ul class="list-group list-group-flush note-list">
+		<li *ngFor="let note of notes" class="list-group-item">
+			<span>{{note.description}}</span>
+			<div class="float-right">
+				<span>{{convertDate(note.dateCreated)}}</span>
+				<button (click)="edit()" type="button" class="btn btn-info">Edit</button>
+				<button class="btn btn-danger">delete</button>
+			</div>
+		</li>
+	</ul>
 	<br>
 	<br>
-	<button class="btn btn-outline-warning btn-block">Link your Note with your profile</button>
- 	<button class="btn btn-outline-warning btn-block">Post your note to the Homepage</button>
- 	<button class="btn btn-outline-warning btn-block">Share your Note with Friends</button>
- 	<button class="btn btn-outline-warning btn-block">Resend Note</button>
+ 	<button class="btn btn-outline-warning btn-block" type="Submit" (click)='friends'>Share your Note with Friends</button>
 </div>

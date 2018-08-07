@@ -1,50 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  	<a class="navbar-brand" href="#">Navbar</a>
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
+		    <li class="nav-item">
+		        <a class="nav-link" routerLink="/homepage">Home<span class="sr-only"></span></a>
+		    </li>
+		    <li class="nav-item">
+		        <a class="nav-link" routerLink="/help">About</a>
+		    </li>   
+		    <li class="nav-item">
+		    	<a class="nav-link" routerLink="/note">Notes</a>
+		    </li>
+		    <li class="nav-item">
+		        <a class="nav-link" routerLink="/friends">Friends</a>
+		    </li>
+		    <li class="nav-item">
+		        <a class="nav-link" routerLink="/user">User Chat</a>
+		    </li>
+		</ul>
+	</div>
+</nav>
+
 <div class="container-fluid">
 	<h1 class="text-center">Profile</h1>
 	<!-- non-editable -->
 	<div *ngIf="!editable">
-		<button (click)="edit()" type="button" class="btn btn-info">Edit <i class="far fa-edit"></i></button>
+		<button (click)="edit()" type="button" class="btn btn-info">Edit<i class="far fa-edit"></i></button>
+	
 		<div class="form-group">
 			<label for="username"><b>Username</b></label>
-			<p name="username">alice</p>
-		</div>
+			<p name="username">{{user.username}}</p>
+		</div>			
 		<div class="form-group">
 			<label for="email"><b>E-mail</b></label>
-			<p name="email">alice@gmail.com</p>
+			<p name="email">{{user.email}}</p>
 		</div>
 		<div class="form-group">
 			<label for="first-name"><b>First Name</b></label>
-			<p name="first-name">Alice</p>
+			<p name="first-name">{{user.firstName}}</p>
 		</div>
 		<div class="form-group">
 			<label for="last-name"><b>Last Name</b></label>
-			<p name="last-name">Wonder</p>
+			<p name="last-name">{{user.lastName}}</p>
 		</div>
-		<a class="btn btn-danger btn-block" routerLink="/homepage">Logout</a>
+		<br>
+		<button class="btn btn-danger btn-block" (click)="logout()" type="button">Logout</button>
 	</div>
 	<!-- editable -->
 	<div *ngIf="editable">
-		<form>
-			<div class="form-group">
+		<form (ngSubmit)="update()"  id="profileForm" #f="ngForm">   <div class="form-group">
 				<label for="username"><b>Username</b></label>
-				<input class="form-control" type="text" name="username" placeholder="username">
+				<input class="form-control" type="username" name="username" required ngModel="{{user.username}}"#username="ngModel" placeholder="example">
 			</div>
 			<div class="form-group">
 				<label for="email"><b>E-mail</b></label>
-				<input class="form-control" type="email" name="email" placeholder="email">
+				<input class="form-control" type="email" name="email"
+				required ngModel="{{user.email}}" #email="ngModel" placeholder="example@email.com">
 			</div>
 			<div class="form-group">
 				<label for="first-name"><b>First Name</b></label>
-				<input class="form-control" type="text" name="first-name" placeholder="first-name">
+				<input class="form-control" type="text" name="firstName"
+				required ngModel="{{user.firstName}}" #firstName="ngModel" placeholder="Alice"> 
 			</div>
 			<div class="form-group">
 				<label for="last-name"><b>Last Name</b></label>
-				<input class="form-control" type="text" name="last-name" placeholder="last-name">
+				<input class="form-control" type="text" name="lastName"
+     			required ngModel="{{user.lastName}}" #lastname="ngModel" placeholder="Wang">
 			</div>
-			<a  (click)="update()" class = "btn btn-success btn-block">Submit</a>
-			<a class="btn btn-danger btn-block" routerLink="/homepage">Logout</a>
+			<button class = "btn btn-success btn-block" type="submit" form="profileForm" [disabled]="f.invalid">Submit</button>
+			<button class="btn btn-danger btn-block" (click)="logout()" type="button">Logout</button>
 		</form>
 	</div>
 </div>
-
 		
 

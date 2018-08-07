@@ -9,6 +9,9 @@
 		    <li class="nav-item">
 		        <a class="nav-link" routerLink="/homepage">Home<span class="sr-only"></span></a>
 		    </li>
+		     <li class="nav-item">
+		        <a class="nav-link" routerLink="/profile">Profile</a>
+		    </li>
 		    <li class="nav-item">
 		        <a class="nav-link" routerLink="/help">About</a>
 		    </li>   
@@ -43,7 +46,7 @@
 			
 			Leave notes for yourself or someone else to look at on the Note page. 
 			
-			If you just want to communicate with someone and see what knowledge they can offer you go to the Chat page. 
+			If you just want to communicate with someone and see what knowledge they can offer you go to the User Chat page. 
 
 			If you're looking to reconnect with someone you haven't heard from in years go to the friends page. 
 
@@ -58,12 +61,17 @@
 				<div class="form-group">
 					<input class="form-control" type="text" name="username" ngModel #username="ngModel" required placeholder="Username">
 				</div>
+				<span class="alert" *ngIf="username.invalid &&
+				username.touched">Please enter username!</span>
 				<div class="form-group">
 					<input class="form-control" type="password" name="password"
 					placeholder="Password" required ngModel #password="ngModel">
 				</div>
-				<button class="btn btn-success btn-block" type="Submit">Login</button>
-				
+				<span class="alert" *ngIf="password.invalid &&
+				password.touched">Please enter password!</span>
+				<div class="form-group">
+				<button class="btn btn-success btn-block" [disabled]="f.invalid" type="Submit">Login</button>
+				</div>
 				<button class="btn btn-danger btn-block" routerLink="/register">Register</button>
 			</form>
 		</div>
