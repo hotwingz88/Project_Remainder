@@ -62,7 +62,7 @@ module.exports = function(app) {
 
 
   function loggedin(req, res) {
-    console.log('loggedin');
+  
           if(req.isAuthenticated()) {
             res.send(req.user);
         } else {

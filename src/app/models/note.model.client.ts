@@ -3,4 +3,5 @@ export class Note {
 	developerId: string;
 	description: string;
 	dateCreated?: string;
+	
 }

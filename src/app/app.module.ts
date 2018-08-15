@@ -26,7 +26,8 @@ import { NoteService } from './services/note.service.client';
     UserComponent,
     NoteComponent,
     HelpComponent,
-    HomepageComponent
+    HomepageComponent,
+    
   ],
   imports: [
     BrowserModule,
