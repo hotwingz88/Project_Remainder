@@ -86,7 +86,7 @@ export class NoteComponent implements OnInit {
           }
       );
     }
-
+    // you can select the current note on screen and drag it in any order you wish
     selectNote(note) {
       this.editDescription = note.description
     }
